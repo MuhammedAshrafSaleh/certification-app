@@ -1,5 +1,4 @@
-import 'package:certifications/app/admin_screen/admin_login.dart';
-import 'package:certifications/app/login_system/register.dart';
+import 'package:certifications/app/login_system/login.dart';
 import 'package:flutter/material.dart';
 
 import '../core/regex.dart';
@@ -7,9 +6,9 @@ import '../widgets/custom_btn.dart';
 import '../widgets/custom_text_btn.dart';
 import '../widgets/custom_textform.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
-  static const routeName = 'LoginScreen';
+class AdminLogin extends StatelessWidget {
+  AdminLogin({super.key});
+  static const routeName = 'AdminLoginScreen';
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -28,7 +27,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Welcome back! Glad to see you, Again!',
+                  'Admin Login',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Form(
@@ -76,22 +75,14 @@ class LoginScreen extends StatelessWidget {
                         },
                       ),
                       CustomBtn(
-                          text1: 'Don’t have an account?',
-                          text2: 'Register Now',
+                          text1: 'Not an admin',
+                          text2: 'Login as user',
                           onPressed: () {
-                            Navigator.pushNamed(
-                                context, RegisterScreen.routeName);
+                            Navigator.pushNamed(context, LoginScreen.routeName);
                           }),
                     ],
                   ),
                 ),
-                const SizedBox(height: 150),
-                CustomBtn(
-                    text1: 'Not a user',
-                    text2: 'Admin Login',
-                    onPressed: () {
-                      Navigator.pushNamed(context, AdminLogin.routeName);
-                    }),
               ],
             ),
           ),
